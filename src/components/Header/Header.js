@@ -6,7 +6,7 @@ import logo from "../../images/Logo.svg";
 import "./Header.css";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   return (
     <nav className="header">
       <img src={logo} alt="" />
@@ -15,9 +15,17 @@ const Header = () => {
         <Link to="/orders">Orders</Link>
         <Link to="/inventory">Inventory</Link>
         <Link to="/about">About</Link>
-        <Link to="/login">Log In</Link>
-        <Link to="/register">Register</Link>
-        <p>{user?.email}</p>
+        {user?.uid ? (
+          <button onClick={logOut} className="btn-logout">
+            Sign Out
+          </button>
+        ) : (
+          <>
+            <Link to="/login">Log In</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+        <p style={{ color: "red" }}>{user?.email}</p>
       </div>
     </nav>
   );
