@@ -2,7 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Inventory from "./components/Inventory/Inventory";
 import Main from "./components/Layout/Main";
+import Login from "./components/Login/Login";
 import Orders from "./components/Orders/Orders";
+import Register from "./components/Register/Register";
 import Shop from "./components/Shop/Shop";
 import { productsAndCartLoader } from "./Loader/ProductsAndCartLoader";
 
@@ -25,6 +27,8 @@ function App() {
           element: <Orders />,
         },
         { path: "/inventory", element: <Inventory /> },
+        { path: "/login", element: <Login /> },
+        { path: "/register", element: <Register /> },
       ],
     },
   ]);
